@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import MeteoCardMini from "./MeteoCardMini";
-import { BsArrowLeft, BsArrowReturnLeft } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 
 // import MeteoList from "./MeteoList";
 // import MeteoCard from "./MeteoCard";
@@ -35,7 +35,7 @@ const MeteoDetails = () => {
     <Container fluid>
       <Row className='d-flex justify-content-center mt-3 gy-3'>
         <Col xs={12} lg={8} className='d-flex flex-column'>
-          <h2 className='display-3'>Meteo to 12 hour</h2>
+          <h2 className='display-3'>Meteo to 24 hour</h2>
           <Link to='/' className='fs-5 text-black ms-auto'>
             <BsArrowLeft />
             Go back
