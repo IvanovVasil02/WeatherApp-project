@@ -7,6 +7,10 @@ const mainState = {
     content: [],
   },
 
+  selectedMeteo: {
+    content: {},
+  },
+
   currentMeteo: {
     content: null,
   },
@@ -46,6 +50,17 @@ const mainReducer = (state = mainState, action) => {
         ...state,
         currentMeteo: {
           content: action.payload,
+        },
+      };
+
+    case "SET_METEO_DETAILS":
+      return {
+        ...state,
+        selectedMeteo: {
+          content: {
+            ...action.payload,
+            list: action.payload.list.filter((_, i) => i < 8),
+          },
         },
       };
 

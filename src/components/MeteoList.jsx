@@ -1,22 +1,13 @@
-import { Card, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { BsFillCloudsFill, BsFillCloudRainHeavyFill, BsSunFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import MeteoCardMini from "./MeteoCardMini";
+import { Col } from "react-bootstrap";
 
 const MeteoList = () => {
   const dispatch = useDispatch();
   const coordinates = useSelector((state) => state.currentCoord.content);
   const meteoWeek = useSelector((state) => state.meteoContainer.content);
   //   const currentMeteo = useSelector((state) => state.currentMeto.content);
-
-  const converterC = (elem) => {
-    return (parseInt(elem) - 273.15).toFixed(1);
-  };
-
-  const convertDt = (elem) => {
-    return new Date(elem * 1000).toLocaleString("it-IT");
-  };
 
   const fetchMeteoData = async (event) => {
     try {
@@ -49,32 +40,7 @@ const MeteoList = () => {
     <>
       <Col xs={12} className='d-flex flex-column '>
         {meteoWeek.list &&
-          meteoWeek.list.map((meteo, i) => (
-            <Link to={`/meteoDetails/${meteoWeek.city.coord.lat}/${meteoWeek.city.coord.lat}`}>
-              <Card className='d-flex flex-row align-items-center px-2 my-1'>
-                {meteo.weather[0].main === "Clouds" ? (
-                  <BsFillCloudsFill />
-                ) : meteo.weather[0].main === "Rain" ? (
-                  <BsFillCloudRainHeavyFill />
-                ) : (
-                  <BsSunFill />
-                )}
-                <Card.Body>
-                  <div className='d-flex align-items-center justify-content-between'>
-                    <div>
-                      <p className='fs-3'>{meteo.weather[0].main}</p>
-                      <p className='display-6'>{meteo.weather[0].description}</p>
-                    </div>
-                    <div>
-                      <p>{convertDt(meteo.dt)}</p>
-                      <h3 className='display-3'>{converterC(meteo.main.temp)}°</h3>
-                    </div>
-                  </div>
-                  Wind: {meteo.wind.speed}Km/h Humidty:{meteo.main.humidity}%
-                </Card.Body>
-              </Card>
-            </Link>
-          ))}
+          meteoWeek.list.map((meteo, i) => <MeteoCardMini key={"main" + i} meteo={meteo} meteoWeek={meteoWeek} />)}
       </Col>
     </>
   );
