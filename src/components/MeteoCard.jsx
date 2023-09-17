@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { BsCloudFog2, BsDroplet } from "react-icons/bs";
-import brokenCloud from "../assets/scattered-clouds.png";
+import brokenCloud from "../assets/brokenCloud.png";
 // import { useSelector } from "react-redux";
 
 const MeteoCard = () => {
