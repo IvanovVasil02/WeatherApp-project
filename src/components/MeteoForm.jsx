@@ -1,8 +1,10 @@
-import { Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Col, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import cloud from "../assets/few-Clouds.png";
 
 const MeteoForm = () => {
   const dispatch = useDispatch();
+  const currentCoord = useSelector((state) => state.currentCoord.content);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,6 +31,14 @@ const MeteoForm = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Control type='search' placeholder='Search for a city' className='py-2 px-3 rounded-5' />
       </Form>
+
+      {!currentCoord && (
+        <Col xs={12} className='d-flex justify-content-center flex-column align-items-center text-center'>
+          <img variant='top' src={cloud} alt='sun' className='img-fluid w-100' style={{ maxWidth: "400px" }} />
+          <h2>Explore global map for wheater updates</h2>
+          <p className='text-white'>FInd out the wheater forecast around you so you can prepare yourself</p>
+        </Col>
+      )}
     </>
   );
 };
