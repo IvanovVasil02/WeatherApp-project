@@ -1,4 +1,4 @@
-import { Col, Form, Row } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 const MeteoForm = () => {
@@ -22,14 +22,14 @@ const MeteoForm = () => {
     }
   };
 
+  // mainCoord.map();
+
   return (
-    <Row>
-      <Col xs={12}>
-        <Form onSubmit={handleSubmit}>
-          <Form.Control type='search' placeholder='Place the city' />
-        </Form>
-      </Col>
-    </Row>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Control type='search' placeholder='Search for a city' className='py-2 px-3 rounded-5' />
+      </Form>
+    </>
   );
 };
 

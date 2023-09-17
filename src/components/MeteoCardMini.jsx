@@ -1,5 +1,5 @@
-import { Card } from "react-bootstrap";
-import { BsFillCloudRainHeavyFill, BsFillCloudsFill, BsSunFill } from "react-icons/bs";
+import { Card, Col } from "react-bootstrap";
+import { BsCloudFog2, BsDroplet } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const MeteoCardMini = (props) => {
@@ -12,30 +12,34 @@ const MeteoCardMini = (props) => {
   };
 
   return (
-    <Link to={`/meteoDetails/${props.meteoWeek.city.coord.lat}/${props.meteoWeek.city.coord.lat}`}>
-      <Card className='d-flex flex-row align-items-center px-2 my-1'>
-        {props.meteo.weather[0].main === "Clouds" ? (
-          <BsFillCloudsFill />
-        ) : props.meteo.weather[0].main === "Rain" ? (
-          <BsFillCloudRainHeavyFill />
-        ) : (
-          <BsSunFill />
-        )}
-        <Card.Body>
-          <div className='d-flex align-items-center justify-content-between'>
-            <div>
-              <p className='fs-3'>{props.meteo.weather[0].main}</p>
-              <p className='display-6'>{props.meteo.weather[0].description}</p>
+    <Col>
+      <Link to={`/meteoDetails/${props.meteoWeek.city.coord.lat}/${props.meteoWeek.city.coord.lon}`}>
+        <Card className='d-flex flex-row align-items-center px-2 my-1 rounded-5'>
+          {/* {props.meteo.weather[0].main === "Clouds" ? (
+            <BsFillCloudsFill />
+          ) : props.meteo.weather[0].main === "Rain" ? (
+            <BsFillCloudRainHeavyFill />
+          ) : (
+            <BsSunFill />
+          )} */}
+          <Card.Body>
+            <div className='d-flex align-items-center justify-content-between'>
+              <div>
+                <p className='fs-3'>{props.meteo.weather[0].main}</p>
+                <p className='display-6'>{props.meteo.weather[0].description}</p>
+              </div>
+              <div>
+                <p>{convertDt(props.meteo.dt)}</p>
+                <h3 className='display-3'>{converterC(props.meteo.main.temp)}°</h3>
+              </div>
             </div>
-            <div>
-              <p>{convertDt(props.meteo.dt)}</p>
-              <h3 className='display-3'>{converterC(props.meteo.main.temp)}°</h3>
-            </div>
-          </div>
-          Wind: {props.meteo.wind.speed}Km/h Humidty:{props.meteo.main.humidity}%
-        </Card.Body>
-      </Card>
-    </Link>
+            <BsCloudFog2 className='m-1' />
+            {props.meteo.wind.speed}Km/h <BsDroplet className='m-1' />
+            {props.meteo.main.humidity}%
+          </Card.Body>
+        </Card>
+      </Link>
+    </Col>
   );
 };
 

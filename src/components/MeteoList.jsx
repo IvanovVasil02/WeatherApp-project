@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import MeteoCardMini from "./MeteoCardMini";
-import { Col } from "react-bootstrap";
 
 const MeteoList = () => {
   const dispatch = useDispatch();
@@ -38,10 +37,8 @@ const MeteoList = () => {
 
   return (
     <>
-      <Col xs={12} className='d-flex flex-column '>
-        {meteoWeek.list &&
-          meteoWeek.list.map((meteo, i) => <MeteoCardMini key={"main" + i} meteo={meteo} meteoWeek={meteoWeek} />)}
-      </Col>
+      {meteoWeek.list &&
+        meteoWeek.list.map((meteo, i) => <MeteoCardMini key={"main" + i} meteo={meteo} meteoWeek={meteoWeek} />)}
     </>
   );
 };

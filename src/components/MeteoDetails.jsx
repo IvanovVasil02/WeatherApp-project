@@ -34,18 +34,18 @@ const MeteoDetails = () => {
   return (
     <Container fluid>
       <Row className='d-flex justify-content-center mt-3 gy-3'>
-        <Col xs={12} lg={8} className='d-flex flex-column'>
-          <h2 className='display-3'>Meteo to 24 hour</h2>
-          <Link to='/' className='fs-5 text-black ms-auto'>
-            <BsArrowLeft />
-            Go back
-          </Link>
-
-          {selectedMeteo.list &&
-            selectedMeteo.list.map((meteo, i) => (
+        {selectedMeteo.list && (
+          <Col xs={12} lg={8} className='d-flex flex-column'>
+            <h2 className='display-3'>24 hour weather forecast for {selectedMeteo.city.name}</h2>
+            <Link to='/' className='fs-5 text-black ms-auto'>
+              <BsArrowLeft />
+              Go back
+            </Link>
+            {selectedMeteo.list.map((meteo, i) => (
               <MeteoCardMini meteo={meteo} meteoWeek={selectedMeteo} key={"meteo" + i} />
             ))}
-        </Col>
+          </Col>
+        )}
       </Row>
     </Container>
   );
