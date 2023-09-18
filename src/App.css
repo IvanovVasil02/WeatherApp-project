@@ -64,10 +64,11 @@ form input {
   background: linear-gradient(hsla(217, 100%, 93%, 0.618), #fff);
   box-shadow: inset 0 0 20px 2px #fff;
   color: #002141 !important;
+  max-height: 80vh;
 }
 
 .card img {
-  max-width: 70%;
+  max-width: 40%;
 }
 
 .card h2 {

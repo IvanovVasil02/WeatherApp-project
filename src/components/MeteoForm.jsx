@@ -1,6 +1,6 @@
 import { Col, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import cloud from "../assets/few-Clouds.png";
+import cloud from "../assets/fewClouds.png";
 
 const MeteoForm = () => {
   const dispatch = useDispatch();

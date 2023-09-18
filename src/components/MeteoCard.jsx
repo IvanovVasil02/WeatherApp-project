@@ -2,6 +2,12 @@ import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { BsCloudFog2, BsDroplet } from "react-icons/bs";
 import brokenCloud from "../assets/brokenCloud.png";
+import scatteredCloud from "../assets/scatteredClouds.png";
+import rain from "../assets/rain.png";
+import sun from "../assets/sun.png";
+import fewClouds from "../assets/fewClouds.png";
+import overcastCloud from "../assets/overcastCloud.png";
+
 // import { useSelector } from "react-redux";
 
 const MeteoCard = () => {
@@ -11,20 +17,34 @@ const MeteoCard = () => {
     return (parseInt(temperature) - 273.15).toFixed(0) + "°";
   };
 
+  // eslint-disable-next-line no-unused-vars
+  const meteoImg = (meteoCondition) => {
+    switch (meteoCondition) {
+      case "clear sky":
+        return sun;
+      case "few clouds":
+        return fewClouds;
+      case "overcast clouds":
+        return overcastCloud;
+      case "light rain":
+        return rain;
+      case "rain":
+        return rain;
+      case "broken clouds":
+        return brokenCloud;
+      case "scattered clouds":
+        return scatteredCloud;
+
+      default:
+        return brokenCloud;
+    }
+  };
+
   return (
     currentMeteo && (
       <Card className='my-1 rounded-5 align-items-center'>
-        {/* <div className='d-flex justify-content-between px-4 '>
-          <h2 className='display-2'>{temperature + "°"}</h2>
-          <div>
-            {currentMeteo.weather[0].main === "clouds" ? <BsFillCloudFill /> : <BsFillSunFill />}
-
-            <h4>{currentMeteo.weather[0].main}</h4>
-            <p>{currentMeteo.weather[0].description}</p>
-          </div>
-        </div> */}
         <h3 className='ms-auto p-3'>{currentMeteo.name}</h3>
-        <Card.Img src={brokenCloud} />
+        <Card.Img src={meteoImg(currentMeteo.weather[0].description)} />
 
         <Card.Body className='d-flex flex-column align-items-center'>
           <Card.Title>
