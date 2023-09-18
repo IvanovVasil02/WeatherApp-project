@@ -11,8 +11,8 @@ const MeteoList = () => {
   const fetchMeteoData = async (event) => {
     try {
       if (coordinates) {
-        const meteoURl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=4464f2e1cd5047a5c458e66b7ae44113`;
-        const curentMeteoURL = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=4464f2e1cd5047a5c458e66b7ae44113`;
+        const meteoURl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=4464f2e1cd5047a5c458e66b7ae44113&units=metric`;
+        const curentMeteoURL = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=4464f2e1cd5047a5c458e66b7ae44113&units=metric`;
 
         const response1 = await fetch(meteoURl);
 

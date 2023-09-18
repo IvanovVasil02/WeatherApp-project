@@ -13,10 +13,6 @@ import overcastCloud from "../assets/overcastCloud.png";
 const MeteoCard = () => {
   const currentMeteo = useSelector((state) => state.currentMeteo.content);
 
-  const kelvinConverter = (temperature) => {
-    return (parseInt(temperature) - 273.15).toFixed(0) + "°";
-  };
-
   // eslint-disable-next-line no-unused-vars
   const meteoImg = (meteoCondition) => {
     switch (meteoCondition) {
@@ -51,8 +47,8 @@ const MeteoCard = () => {
             <h4>{currentMeteo.weather[0].description}</h4>
           </Card.Title>
 
-          <h2>{kelvinConverter(currentMeteo.main.temp)}</h2>
-          <p>Real feels {kelvinConverter(currentMeteo.main.feels_like)}</p>
+          <h2>{currentMeteo.main.temp}°c</h2>
+          <p>Real feels {currentMeteo.main.feels_like}°c</p>
           <div className='d-flex justify-content-between align-items-center gap-2'>
             <div className='d-flex align-items-center '>
               <BsCloudFog2 className='me-1' />

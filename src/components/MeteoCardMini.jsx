@@ -3,10 +3,6 @@ import { BsCloudFog2, BsDroplet } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const MeteoCardMini = (props) => {
-  const converterC = (elem) => {
-    return (parseInt(elem) - 273.15).toFixed(1);
-  };
-
   const convertDt = (elem) => {
     return new Date(elem * 1000).toUTCString();
   };
@@ -23,7 +19,7 @@ const MeteoCardMini = (props) => {
               </div>
               <div>
                 <p>{convertDt(props.meteo.dt)}</p>
-                <h3 className='display-3'>{converterC(props.meteo.main.temp)}°</h3>
+                <h3 className='display-3'>{props.meteo.main.temp}°c</h3>
               </div>
             </div>
             <BsCloudFog2 className='m-1' />

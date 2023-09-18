@@ -15,7 +15,7 @@ const MeteoDetails = () => {
 
   const fetchMeteo = async () => {
     try {
-      const meteoURl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=4464f2e1cd5047a5c458e66b7ae44113`;
+      const meteoURl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=4464f2e1cd5047a5c458e66b7ae44113&units=metric`;
 
       const response1 = await fetch(meteoURl);
 

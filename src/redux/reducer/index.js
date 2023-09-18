@@ -59,7 +59,7 @@ const mainReducer = (state = mainState, action) => {
         selectedMeteo: {
           content: {
             ...action.payload,
-            list: action.payload.list.filter((_, i) => i < 8),
+            list: action.payload.list.filter((elem) => elem.dt_txt === "16:00:00"),
           },
         },
       };
