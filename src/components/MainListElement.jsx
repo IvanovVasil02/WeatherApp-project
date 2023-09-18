@@ -45,7 +45,7 @@ const MainlistElement = (lat, lon) => {
 
   useEffect(() => {
     fetchMainData(meteoContainer);
-    console.log(meteoContainer);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

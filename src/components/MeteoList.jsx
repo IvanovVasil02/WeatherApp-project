@@ -22,8 +22,9 @@ const MeteoList = () => {
 
         const meteoData = await response.json();
 
-        dispatch({ type: "SET_METEO_CONTAINER", payload: meteoDataArray });
         dispatch({ type: "SET_CURRENT_METEO", payload: meteoData });
+        dispatch({ type: "SET_WEEK_DETAILS", payload: meteoDataArray });
+        dispatch({ type: "SET_METEO_CONTAINER", payload: meteoDataArray });
       }
     } catch (error) {
       console.log(error);

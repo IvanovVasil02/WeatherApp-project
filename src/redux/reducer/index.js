@@ -7,7 +7,7 @@ const mainState = {
     content: [],
   },
 
-  selectedMeteo: {
+  meteoWeek: {
     content: {},
   },
 
@@ -53,13 +53,13 @@ const mainReducer = (state = mainState, action) => {
         },
       };
 
-    case "SET_METEO_DETAILS":
+    case "SET_WEEK_DETAILS":
       return {
         ...state,
-        selectedMeteo: {
+        meteoWeek: {
           content: {
             ...action.payload,
-            list: action.payload.list.filter((elem) => elem.dt_txt === "16:00:00"),
+            list: action.payload.list.filter((elem) => elem.dt_txt.includes("09:00:00")),
           },
         },
       };

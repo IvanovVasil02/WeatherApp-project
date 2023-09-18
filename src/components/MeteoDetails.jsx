@@ -11,7 +11,7 @@ import { BsArrowLeft } from "react-icons/bs";
 const MeteoDetails = () => {
   let { lat, lon } = useParams();
   const dispatch = useDispatch();
-  const selectedMeteo = useSelector((state) => state.selectedMeteo.content);
+  const selectedMeteo = useSelector((state) => state.meteoContainer.content);
 
   const fetchMeteo = async () => {
     try {
@@ -20,7 +20,7 @@ const MeteoDetails = () => {
       const response1 = await fetch(meteoURl);
 
       const meteoDataArray = await response1.json();
-      dispatch({ type: "SET_METEO_DETAILS", payload: meteoDataArray });
+      dispatch({ type: "SET_METEO_CONTAINER", payload: meteoDataArray });
     } catch (error) {
       console.log(error);
     }

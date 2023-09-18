@@ -12,7 +12,7 @@ const MeteoCardMini = (props) => {
       <Link to={`/meteoDetails/${props.meteoWeek.city.coord.lat}/${props.meteoWeek.city.coord.lon}`}>
         <Card className='d-flex flex-row align-items-center px-2 my-1 rounded-5'>
           <Card.Body>
-            <div className='d-flex align-items-center justify-content-between'>
+            <div className='d-flex align-items-center justify-content-between '>
               <div>
                 <p className='fs-3'>{props.meteo.weather[0].main}</p>
                 <p className='display-6'>{props.meteo.weather[0].description}</p>
