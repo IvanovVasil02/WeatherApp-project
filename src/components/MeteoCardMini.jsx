@@ -8,20 +8,13 @@ const MeteoCardMini = (props) => {
   };
 
   const convertDt = (elem) => {
-    return new Date(elem * 1000).toLocaleString("it-IT");
+    return new Date(elem * 1000).toUTCString();
   };
 
   return (
     <Col>
       <Link to={`/meteoDetails/${props.meteoWeek.city.coord.lat}/${props.meteoWeek.city.coord.lon}`}>
         <Card className='d-flex flex-row align-items-center px-2 my-1 rounded-5'>
-          {/* {props.meteo.weather[0].main === "Clouds" ? (
-            <BsFillCloudsFill />
-          ) : props.meteo.weather[0].main === "Rain" ? (
-            <BsFillCloudRainHeavyFill />
-          ) : (
-            <BsSunFill />
-          )} */}
           <Card.Body>
             <div className='d-flex align-items-center justify-content-between'>
               <div>
