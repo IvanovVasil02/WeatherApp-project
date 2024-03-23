@@ -17,14 +17,14 @@ WeatherApp is a web application that allows users to check the weather around th
 2. Navigate to the project directory.
 3. Install dependencies by running `npm install`.
 
-##Usage
+## Usage
 
 1. Sign up for an API key at [Open Weather Map](https://openweathermap.org/api).
 2. Add your API key to the `.env` file in the project directory. => (REACT_APP_API_KEY=your_api_key_here)
 3. Start the development server by running `npm start`.
 Open http://localhost:3000 in your browser.
 
-##API Endpoints
+## API Endpoints
 
 - `/geo/1.0/direct`
 - `/data/2.5/weather`
