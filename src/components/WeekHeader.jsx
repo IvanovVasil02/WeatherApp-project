@@ -36,8 +36,8 @@ const Weekheader = () => {
 
   const getDayOfWeek = (data) => {
     const date = new Date(data);
-    const day = date.getUTCDay();
-
+    let day = date.getUTCDay();
+    day = day === 0 ? 7 : day;
     return weeksDay[day - 1];
   };
 
